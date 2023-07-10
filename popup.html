@@ -2,11 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" href="popup.css" />
+    <script src="popup.js"></script>
   </head>
   <body>
-    <h1>Click the button to lock the browser</h1>
-    <button id="lockButton">Lock Browser</button>
-
-    <script src="popup.js"></script>
+    <div class="container">
+      <h2>Lock Chrome Timer</h2>
+      <p>Enter your password to unlock later:</p>
+      <input type="password" id="passwordInput" />
+      <button id="setTimeBtn">Set Time</button>
+      <p id="statusMessage"></p>
+    </div>
   </body>
 </html>
