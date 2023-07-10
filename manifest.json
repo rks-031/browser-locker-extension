@@ -16,7 +16,7 @@
     "128": "lock.png"
   },
   "permissions": ["scripting", "activeTab"],
-  "host_permissions": ["https://*.baskethunt.com/"],
+  "host_permissions": ["https://*.baskethunt.com/*", "https://*.google.com/*"],
   "background": {
     "service_worker": "background.js"
   }

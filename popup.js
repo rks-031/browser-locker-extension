@@ -1,29 +1,19 @@
-document.getElementById("lockButton").addEventListener("click", function () {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.executeScript(tabs[0].id, {
-      code: `
-              var overlay = document.createElement('div');
-              overlay.style.position = 'fixed';
-              overlay.style.top = '0';
-              overlay.style.left = '0';
-              overlay.style.width = '100%';
-              overlay.style.height = '100%';
-              overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-              overlay.style.zIndex = '9999';
-              overlay.style.display = 'flex';
-              overlay.style.justifyContent = 'center';
-              overlay.style.alignItems = 'center';
-      
-              var message = document.createElement('h1');
-              message.style.color = '#fff';
-              message.style.fontFamily = 'Arial, sans-serif';
-              message.style.fontSize = '36px';
-              message.style.textAlign = 'center';
-              message.textContent = 'Browser Locked';
-      
-              overlay.appendChild(message);
-              document.body.appendChild(overlay);
-            `,
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const setTimeBtn = document.getElementById("setTimeBtn");
+  const passwordInput = document.getElementById("passwordInput");
+  const statusMessage = document.getElementById("statusMessage");
+
+  setTimeBtn.addEventListener("click", function () {
+    const time = prompt("Enter the time in minutes (1, 5, 10, ..., 90):");
+    if (time) {
+      chrome.storage.sync.set({ time: parseInt(time) }, function () {
+        statusMessage.textContent = "Time set successfully!";
+      });
+    }
+  });
+
+  passwordInput.addEventListener("input", function () {
+    const password = passwordInput.value;
+    chrome.storage.sync.set({ password: password });
   });
 });
