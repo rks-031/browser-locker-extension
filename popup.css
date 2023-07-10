@@ -1,23 +1,29 @@
-body {
-        width: 200px;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: Arial, sans-serif;
+.container {
+        width: 300px;
+        padding: 20px;
+}
+
+h2 {
         text-align: center;
 }
 
-h1 {
-        font-size: 18px;
+p {
         margin-bottom: 10px;
 }
 
-button {
-        padding: 8px 16px;
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        cursor: pointer;
+#passwordInput {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+}
+
+#setTimeBtn {
+        width: 100%;
+        padding: 10px;
+}
+
+#statusMessage {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
 }
