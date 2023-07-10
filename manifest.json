@@ -1,20 +1,23 @@
 {
-  "name": "Browser Locker",
-  "version": "0.1.0",
-  "description": "Locking the web browser",
-  "permissions": ["storage", "tabs", "activeTab"],
-  "host_permissions": ["https://www.google.com/*"],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "manifest_version": 3,
+  "name": "Lock Chrome Timer",
+  "version": "1.0",
   "action": {
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "lock.png",
-      "24": "lock.png",
-      "32": "lock.png"
-    },
-    "default_title": "Browser Locker",
-    "default_popup": "popup.html"
+      "48": "lock.png",
+      "128": "lock.png"
+    }
   },
-  "manifest_version": 3
+  "icons": {
+    "16": "lock.png",
+    "48": "lock.png",
+    "128": "lock.png"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://*.baskethunt.com/"],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
