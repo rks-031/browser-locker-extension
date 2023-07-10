@@ -2,18 +2,17 @@
   "manifest_version": 3,
   "name": "Browser Lock",
   "version": "1.0",
-  "permissions": ["scripting", "activeTab", "storage", "tabs", "history"],
+  "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",
     "default_title": "Browser Lock",
     "icons": {
-      "16": "lock.png",
-      "32": "lock1.png",
-      "96": "lock2.png"
+      "16": "lock1.png",
+      "48": "lock2.png",
+      "128": "lock3.png"
     }
   },
   "background": {
     "service_worker": "background.js"
-  },
-  "host_permissions": ["https://www.google.com/*", "https://*.google.com/*"]
+  }
 }
