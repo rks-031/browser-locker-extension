@@ -1,18 +1,20 @@
 {
-  "manifest_version": 3,
-  "name": "Browser Lock",
-  "version": "1.0",
-  "permissions": ["activeTab"],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Browser Lock",
-    "icons": {
-      "16": "lock1.png",
-      "48": "lock2.png",
-      "128": "lock3.png"
-    }
-  },
+  "name": "Browser Locker",
+  "version": "0.1.0",
+  "description": "Locking the web browser",
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["https://www.google.com/*"],
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "action": {
+    "default_icon": {
+      "16": "lock.png",
+      "24": "lock.png",
+      "32": "lock.png"
+    },
+    "default_title": "Browser Locker",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
 }
