@@ -14,7 +14,7 @@ chrome.tabs.onActivated.addListener(function () {
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   clearTimeout(lockTimeout);
-  if (lockTime > 0 && changeInfo.status === "complete") {
+  if (lockTime > 0 && changeInfo.status === "complete") { 
     lockTimeout = setTimeout(lockBrowser, lockTime * 60000);
   }
 });

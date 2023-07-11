@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   passwordInput.addEventListener("input", function () {
     const password = passwordInput.value;
+    // localStorage.setItem("password", password);
     chrome.storage.sync.set({ password: password });
   });
 });
