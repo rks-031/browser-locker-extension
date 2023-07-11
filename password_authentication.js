@@ -5,21 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   unlockBtn.addEventListener("click", function () {
     const password = passwordInput.value;
-    // Replace the following code with your own password verification logic
-
-    // Sample password for demonstration purposes
-    const correctPassword = "password123";
-
-    if (password === correctPassword) {
-      unlockPage();
-    } else {
-      displayErrorMessage("Incorrect password. Please try again.");
-    }
+    chrome.storage.sync.get("password", function (result) {
+      const storedPassword = result.password;
+      if (password === storedPassword) {
+        unlockPage();
+      } else {
+        displayErrorMessage("Incorrect password. Please try again.");
+      }
+    });
   });
 
   function unlockPage() {
-    // Perform actions to unlock the page here
-    // For example, you can enable certain features, remove restrictions, or show hidden content
+    // Hide the password authentication form and show the unlock success message
+    document.querySelector(".container").style.display = "none";
     statusMessage.textContent = "Page unlocked!";
   }
 
