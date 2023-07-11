@@ -1,4 +1,4 @@
-# here are the expected step-by-step points for the extension's functionality:
+# Here are the step-by-step points for the extension's functionality:
 
 1. _When you click on the extension's icon, a popup window (popup.html) will appear._
 
