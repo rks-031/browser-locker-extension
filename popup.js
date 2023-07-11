@@ -6,15 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeBtn.addEventListener("click", function () {
     const time = prompt("Enter the time in minutes (1, 5, 10, ..., 90):");
     if (time) {
-      chrome.storage.sync.set({ time: parseInt(time) }, function () {
-        statusMessage.textContent = "Time set successfully!";
-      });
+
+      localStorage.setItem("time",time);
+      statusMessage.textContent = "Time set successfully!";
+      // chrome.storage.sync.set({ time: parseInt(time) }, function () {
+      //   statusMessage.textContent = "Time set successfully!";
+      // });
     }
   });
 
   passwordInput.addEventListener("input", function () {
     const password = passwordInput.value;
-    // localStorage.setItem("password", password);
-    chrome.storage.sync.set({ password: password });
+    localStorage.setItem("password", password);
+    // chrome.storage.sync.set({ password: password });
   });
 });
