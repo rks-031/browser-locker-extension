@@ -15,7 +15,7 @@
     "48": "lock.png",
     "128": "lock.png"
   },
-  "permissions": ["storage", "activeTab", "https://www.google.com/*"],
+  "permissions": ["storage", "activeTab", "tabs", "webNavigation"],
   "background": {
     "service_worker": "background.js"
   }
