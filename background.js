@@ -21,13 +21,21 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
 function lockBrowser() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    if (tabs.length > 0) {
+    if (tabs && tabs.length > 0) {
       const activeTab = tabs[0];
       if (activeTab.id) {
-        chrome.tabs.update(activeTab.id, {
-          url: "password_authentication.html",
+        chrome.tabs.get(activeTab.id, function (tab) {
+          if (tab) {
+            chrome.tabs.update(tab.id, { url: "password_authentication.html" });
+          } else {
+            console.error("Failed to get the active tab.");
+          }
         });
+      } else {
+        console.error("No tab ID found for the active tab.");
       }
+    } else {
+      console.error("No active tab found.");
     }
   });
 }
