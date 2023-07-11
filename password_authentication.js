@@ -18,12 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function unlockPage() {
     // Hide the password authentication form and show the unlock success message
     document.querySelector(".container").style.display = "none";
-    statusMessage.textContent = "Page unlocked!";
+    statusMessage.textContent = "Browser unlocked!";
   }
 
   function displayErrorMessage(message) {
     statusMessage.textContent = message;
-    // Optionally, you can add additional styling or effects to the error message
     statusMessage.style.color = "red";
   }
 });
