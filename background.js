@@ -20,6 +20,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 function lockBrowser() {
+
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (tabs && tabs.length > 0) {
       const activeTab = tabs[0];
@@ -42,7 +43,12 @@ function lockBrowser() {
 
 chrome.storage.sync.get("time", function (result) {
   lockTime = result.time;
+  console.log(lockTime);
   if (lockTime > 0) {
+    setInterval(()=>{
+      console.log('Working!');
+      console.log(result.time);
+    },1000)
     lockTimeout = setTimeout(lockBrowser, lockTime * 60000);
   }
 });
