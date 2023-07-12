@@ -1,6 +1,8 @@
 body {
         background: linear-gradient(to right, #fc4a1a, #f7b733);
         font-family: 'Bacasime Antique', serif;
+        margin: 0;
+        overflow-y: hidden;
 }
 
 .navbar {
@@ -27,9 +29,8 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 88vh;
-        width: 300px;
-        overflow: hidden;
+        height: 82vh;
+        width: 400px;
 }
 
 .lock {
@@ -93,11 +94,18 @@ p {
 }
 
 #setTimeBtn {
-        width: 30%;
-        padding: 10px;
+        width: 40%;
+        padding: 8px;
         display: flex;
         margin: auto;
         background: linear-gradient(to left, #000000, #434343);
+        border-radius: 4px;
+        box-shadow: 2px 5px#bdc3c7;
+}
+
+#setTimeBtn:hover {
+        transform: translateY(0.25em);
+        padding: 10px;
 }
 
 .set {
@@ -111,6 +119,16 @@ p {
         text-align: center;
         font-weight: bold;
         margin-top: 20px;
+}
+
+footer {
+        background: linear-gradient(to right, #ffefba, #ffffff);
+        color: #e45c07;
+        padding: 15px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 15px;
 }
 
 /* Media Queries for Responsive Design */
