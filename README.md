@@ -2,7 +2,7 @@
 
 1. _When you click on the extension's icon, a popup window (popup.html) will appear._
 
-2. _In the popup window, you will see a heading "Lock Chrome Timer" and a message "Enter your password to unlock later."_
+2. _In the popup window, you will see a heading "Lock Your Browser" and a message "Enter your password to unlock later."_
 
 3. _Below the message, there will be an input field of type password where you can enter your password._
 
