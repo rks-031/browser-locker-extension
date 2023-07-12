@@ -4,9 +4,9 @@
 
 2. _In the popup window, you will see a heading "Lock Chrome Timer" and a message "Enter your password to unlock later."_
 
-3. _Below the message, there will be an input field of type password with the id "passwordInput" where you can enter your password._
+3. _Below the message, there will be an input field of type password where you can enter your password._
 
-4. _Next to the password input field, there will be a button with the id "setTimeBtn" and the text "Set Time."_
+4. _Next to the password input field, there will be a button "Set Time."_
 
 5. _Clicking on the "Set Time" button will trigger a prompt dialog asking you to enter the time in minutes (1, 5, 10, ..., 90)._
 
@@ -22,9 +22,9 @@
 
 11. _On the password authentication page, you will see a heading "Password Authentication" and a message "Please enter your password to unlock."_
 
-12. _There will be an input field of type password with the id "passwordInput" where you can enter the password to unlock the browser._
+12. _There will be an input field of type password where you can enter the password to unlock the browser._
 
-13. _Below the password input field, there will be a button with the id "unlockBtn" and the text "Unlock Browser."_
+13. _Below the password input field, there will be a button "Unlock Browser."_
 
 14. _Enter your password in the input field and click on the "Unlock Browser" button._
 
