@@ -45,7 +45,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             }
             else{
               setTimeout(() => {
-                chrome.tabs.update(tab.id, { url: "password_authentication.html" });
+                //creating a new Window with password_authenticator URL after required time
+                chrome.windows.create({ url: 'password_authentication.html' });
               }, (res.time) * second);  
             }
           })
@@ -65,3 +66,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     console.error("No active tab found.");
   }
 });
+
+function openNewWindow() {
+  chrome.windows.create({ url: 'password_authentication.html' });
+}

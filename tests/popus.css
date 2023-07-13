@@ -1,0 +1,128 @@
+body {
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    font-family: 'Bacasime Antique', serif;
+}
+
+.navbar {
+    background-color: white;
+    color: #ed6b1a;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 300px;
+    overflow: hidden;
+}
+
+.lock {
+    display: flex;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+}
+
+.card {
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 500px;
+    height: 400px;
+    opacity: 0.9;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.card-color {
+    background: linear-gradient(to left, #00000039, #4343437e);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+#passwordInput {
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#setTimeBtn {
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    margin: auto;
+    background: linear-gradient(to left, #000000, #434343);
+}
+
+.set {
+    margin: auto;
+    font-weight: bold;
+    color: white;
+}
+
+
+#statusMessage {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 600px) {
+    .card {
+            width: 90%;
+    }
+
+    #passwordInput {
+            width: 80%;
+    }
+
+    #setTimeBtn {
+            width: 50%;
+    }
+}
