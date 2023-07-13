@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeBtn.addEventListener("click", function () {
     const time = prompt("Enter the time in minutes (1, 5, 10, ..., 90):");
     if (time) {
+      // localStorage.setItem("timeis",time);
+      statusMessage.textContent = "Time set successfully!";
       chrome.storage.sync.set({ time: parseInt(time) }, function () {
         statusMessage.textContent = "Time set successfully!";
       });
@@ -14,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   passwordInput.addEventListener("input", function () {
     const password = passwordInput.value;
-    // localStorage.setItem("password", password);
+    // localStorage.setItem("passwordis", password);
     chrome.storage.sync.set({ password: password });
   });
 });

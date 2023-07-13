@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Lock Chrome Timer-test-version",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "lock.png",
+      "48": "lock.png",
+      "128": "lock.png"
+    }
+  },
+  "icons": {
+    "16": "lock.png",
+    "48": "lock.png",
+    "128": "lock.png"
+  },
+  "permissions": ["storage", "activeTab", "tabs", "webNavigation"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

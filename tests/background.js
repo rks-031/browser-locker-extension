@@ -40,14 +40,11 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
           chrome.storage.sync.get("time", (res) => {
 
             console.log(`Time is : ${res.time}`)//Just for Testing
-            if(res.time===undefined){
-              console.log('Time is Undefined.To fix,correctly type your password and then plug the time in the prompt.')
-            }
-            else{
-              setTimeout(() => {
-                chrome.tabs.update(tab.id, { url: "password_authentication.html" });
-              }, (res.time) * second);  
-            }
+      
+            setTimeout(() => {
+              chrome.tabs.update(tab.id, { url: "password_authentication.html" });
+            }, (res.time) * second);
+
           })
 
           //Error Logs , If any (as per the original Src Code..)
