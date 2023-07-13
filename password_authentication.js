@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const unlockBtn = document.getElementById("unlockBtn");
+  const unlockBtn = document.getElementById("setTimeBtn");
   const passwordInput = document.getElementById("passwordInput");
   const statusMessage = document.getElementById("statusMessage");
 
@@ -23,6 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function displayErrorMessage(message) {
     statusMessage.textContent = message;
-    statusMessage.style.color = "red";
+    statusMessage.style.color = "black";
   }
 });
