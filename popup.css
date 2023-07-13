@@ -1,12 +1,14 @@
 body {
         background: linear-gradient(to right, #fc4a1a, #f7b733);
         font-family: 'Bacasime Antique', serif;
+        margin: 0;
+        overflow-y: hidden;
 }
 
 .navbar {
-        background-color: white;
-        color: #ed6b1a;
-        padding: 10px;
+        background: linear-gradient(to right, #ffefba, #ffffff);
+        color: #e45c07;
+        padding: 15px;
         font-weight: bold;
 }
 
@@ -27,9 +29,9 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90vh;
-        width: 300px;
-        overflow: hidden;
+        height: 82vh;
+        width: 400px;
+        border-radius: 7px;
 }
 
 .lock {
@@ -42,11 +44,12 @@ body {
 .card {
         box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
-        border-radius: 5px;
+        border-radius: 10px;
         width: 500px;
         height: 400px;
         opacity: 0.9;
         transition: transform 0.3s, box-shadow 0.3s;
+        margin: auto;
 }
 
 .card:hover {
@@ -79,7 +82,7 @@ p {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        font-size: 17px;
+        font-size: 19px;
         font-weight: bold;
 }
 
@@ -92,11 +95,18 @@ p {
 }
 
 #setTimeBtn {
-        width: 30%;
-        padding: 10px;
+        width: 40%;
+        padding: 8px;
         display: flex;
         margin: auto;
         background: linear-gradient(to left, #000000, #434343);
+        border-radius: 4px;
+        box-shadow: 2px 5px#bdc3c7;
+}
+
+#setTimeBtn:hover {
+        transform: translateY(0.25em);
+        padding: 10px;
 }
 
 .set {
@@ -110,6 +120,16 @@ p {
         text-align: center;
         font-weight: bold;
         margin-top: 20px;
+}
+
+footer {
+        background: linear-gradient(to right, #ffefba, #ffffff);
+        color: #e45c07;
+        padding: 15px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 15px;
 }
 
 /* Media Queries for Responsive Design */
