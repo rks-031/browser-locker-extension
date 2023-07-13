@@ -57,10 +57,3 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     console.error("No active tab found.");
   }
 });
-<<<<<<< HEAD
-
-function openNewWindow() {
-  chrome.windows.create({ url: 'password_authentication.html' });
-}
-=======
->>>>>>> ef4de8f82dfb36712ef929217e9a64b2a96b930e
