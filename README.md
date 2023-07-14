@@ -1,3 +1,15 @@
+# Look of the extension in chrome://extensions/ page:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/a4f382b8-aaf9-42bd-8f0d-8e3373d35405)
+
+# On clicking the extension icon(lock):
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/f4fe2616-e640-4d29-9639-1da9d7c98310)
+
+# Password authenticator window:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/9d5e803d-6449-4af7-9571-8b80caf398c7)
+
+# On inputing wrong password:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/c76a496a-7d67-4bfa-b382-51bd1dc4b3ce)
+
 # Here are the step-by-step points for the extension's functionality:
 
 1. _When you click on the extension's icon, a popup window (popup.html) will appear._
