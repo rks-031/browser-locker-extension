@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (password === storedPassword) {
         unlockPage();
       } else {
-        displayErrorMessage("Incorrect password. Please try again.");
+        displayErrorMessage("Oops! Incorrect password. Please try again!!");
       }
     });
   });
@@ -24,5 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayErrorMessage(message) {
     statusMessage.textContent = message;
     statusMessage.style.color = "black";
+    statusMessage.style.display = "block"; // Make the status message visible
   }
 });

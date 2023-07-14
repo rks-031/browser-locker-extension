@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
       statusMessage.textContent = "Time set successfully!";
       chrome.storage.sync.set({ time: parseInt(time) }, function () {
         statusMessage.textContent = "Time set successfully!";
+        statusMessage.style.color = "black";
+        statusMessage.style.display = "block"; // Make the status message visible
       });
     }
   });
