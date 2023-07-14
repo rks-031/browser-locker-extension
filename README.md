@@ -4,11 +4,23 @@
 # On clicking the extension icon(lock):
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/f4fe2616-e640-4d29-9639-1da9d7c98310)
 
+# Type your password:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/16147d93-2081-4199-b7f1-3eada70f01e7)
+
+# Select time:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/2ddb209e-f213-4e8f-8d1e-ddb6280a5eb3)
+
+# Time set successfully prompt:
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/50fa048b-11a7-44b1-a667-5fdbfd2ec9ae)
+
 # Password authenticator window:
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/9d5e803d-6449-4af7-9571-8b80caf398c7)
 
 # On inputing wrong password:
-![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/c76a496a-7d67-4bfa-b382-51bd1dc4b3ce)
+![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/b5e3ea4c-3fe6-402d-88bd-89a3c83e6f2f)
+
+# On inputting correct password:
+https://github.com/rks-031/browser-locker-extension/assets/103258259/1ef22c8e-4132-4898-939d-a4b319a0373e
 
 # Here are the step-by-step points for the extension's functionality:
 
