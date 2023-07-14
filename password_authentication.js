@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.getElementById("passwordInput");
   const statusMessage = document.getElementById("statusMessage");
 
+  let locked = true; // Flag to track if the browser is locked
+
   unlockBtn.addEventListener("click", function () {
     const password = passwordInput.value;
     chrome.storage.sync.get("password", function (result) {
@@ -16,9 +18,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function unlockPage() {
-    // Hide the password authentication form and show the unlock success message
-    document.querySelector(".container").style.display = "none";
+    // Disable input and button to prevent further interactions
+    passwordInput.disabled = true;
+    unlockBtn.disabled = true;
+
+    // Show the unlock success message
     statusMessage.textContent = "Browser unlocked!";
+    statusMessage.style.color = "black";
+    statusMessage.style.display = "block";
+
+    locked = false; // Update the locked flag
+  }
+
+  // Add event listener to prevent navigation to other tabs
+  chrome.webNavigation.onBeforeNavigate.addListener(preventNavigation, {
+    url: [{ urlMatches: "<all_urls>" }],
+  });
+
+  function preventNavigation(details) {
+    // Check if the browser is locked
+    if (locked) {
+      // Cancel the navigation request
+      chrome.webNavigation.onBeforeNavigate.removeListener(preventNavigation);
+      chrome.webNavigation.onCommitted.removeListener(preventNavigation);
+      chrome.webNavigation.onErrorOccurred.removeListener(preventNavigation);
+
+      chrome.tabs.remove(details.tabId);
+    }
   }
 
   function displayErrorMessage(message) {

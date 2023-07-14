@@ -9,7 +9,7 @@ const second = 1000;
 //Eg:if Prompt val is 5  : Timeout is for 5000ms / 5s
 
 //Log statement to just chcck if background-js file is correctly attached with the extension
-console.log("Lockbrowser activated!");
+console.log("LockBrowser activated!");
 
 //using Chrome's Tab API to check for current Tabs | This returns a current list/array of objects containing all the active tabs
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
