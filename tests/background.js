@@ -1,8 +1,12 @@
-/*
+// /*
 
-Background-js file which checks for Timeouts and doesn't currently applies the background lock.
+// Background-js file which checks for Timeouts and doesn't currently applies the background lock.
 
-*/
+// */
+
+function openNewWindow() {
+  chrome.windows.create({ url: 'password_authentication.html' });
+}
 
 
 const second = 1000;
@@ -41,10 +45,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
             console.log(`Time is : ${res.time}`)//Just for Testing
       
-            setTimeout(() => {
-              chrome.tabs.update(tab.id, { url: "password_authentication.html" });
-            }, (res.time) * second);
-
+            setTimeout(openNewWindow, (res.time) * second);
+         
           })
 
           //Error Logs , If any (as per the original Src Code..)
@@ -62,3 +64,4 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     console.error("No active tab found.");
   }
 });
+
