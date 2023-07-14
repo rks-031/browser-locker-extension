@@ -40,8 +40,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             } else {
               setTimeout(() => {
                 //creating a new Window with password_authenticator URL after required time
-                chrome.windows.create({ url: 'password_authentication.html' });
-              }, (res.time) * second);  
+                chrome.windows.create({ url: "password_authentication.html" });
+              }, res.time * second);
             }
           });
 
