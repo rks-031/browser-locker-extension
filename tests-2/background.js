@@ -1,3 +1,5 @@
+console.log('Connected')
+
 const lockTime = 3000;
 
 // Variable to keep track of whether the browser is locked
@@ -9,6 +11,7 @@ function lockBrowser() {
   chrome.tabs.query({}, function(tabs) {
     tabs.forEach(function(tab) {
       if (tab.url.startsWith("https") && !tab.url.startsWith("password_authentication.html")) {
+        console.log("strictttt")
         chrome.tabs.update(tab.id, { url: "password_authentication.html" });
       }
     });
@@ -21,8 +24,8 @@ function unlockBrowser() {
 }
 
 // Set a timeout to lock the browser after the specified time
-setTimeout(lockBrowser, lockTime);
-
+// setTimeout(lockBrowser, lockTime);
+lockBrowser();
 // Check if the browser is locked and redirect to the password authentication page if necessary
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (isLocked && tab.url.startsWith("https") && !tab.url.startsWith("password_authentication.html")) {
@@ -32,7 +35,8 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 // Listen for messages from the password authentication page
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.unlock && request.password === "YOUR_PASSWORD") {
+  console.log(request.unlock , request.password);
+  if (request.unlock && request.password === "creepypasta123") {
     unlockBrowser();
     sendResponse({ success: true });
   } else {
