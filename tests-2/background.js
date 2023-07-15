@@ -24,17 +24,24 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                   function (window) {
                     const windowId = window.id;
 
-                    // Blocking web navigation and new tab creation
+                    // Blocking web navigation to existing tabs
+                    //Not working
                     chrome.webNavigation.onBeforeNavigate.addListener(
                       (details) => {
-                        if (details.tabId === activeTab.id) {
-                          chrome.tabs.update(activeTab.id, {
+                        if (details.tabId !== activeTab.id) {
+                          chrome.tabs.update(details.tabId, {
                             url: "password_authentication.html",
                           });
+                          chrome.tabs.remove(details.tabId);
                         }
-                        chrome.tabs.remove(details.tabId);
-                      }
+                      },
+                      { url: [{ urlMatches: "<all_urls>" }] }
                     );
+
+                    // Blocking creation of new tabs
+                    chrome.tabs.onCreated.addListener((newTab) => {
+                      chrome.tabs.remove(newTab.id);
+                    });
 
                     // Unlocking the browser when the correct password is entered
                     chrome.runtime.onMessage.addListener(

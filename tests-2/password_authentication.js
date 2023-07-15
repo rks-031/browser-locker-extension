@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       locked = false; // Update the locked flag
       window.close(); // Close the password_authentication.html page
-    }, 2000); // Delay in milliseconds before closing the page
+    }, 3000); // Delay in milliseconds before closing the page
   }
 
   // Add event listener to prevent navigation to other tabs
