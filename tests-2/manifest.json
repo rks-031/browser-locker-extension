@@ -1,17 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "Browser Lock",
+  "name": "Lock Chrome Timer",
   "version": "1.0",
   "action": {
-    "default_popup": "password_authentication.html",
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "lock.png",
       "48": "lock.png",
       "128": "lock.png"
     }
   },
+  "icons": {
+    "16": "lock.png",
+    "48": "lock.png",
+    "128": "lock.png"
+  },
+  "permissions": ["storage", "activeTab", "tabs", "webNavigation"],
   "background": {
     "service_worker": "background.js"
-  },
-  "permissions": ["tabs"]
+  }
 }

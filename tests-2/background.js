@@ -1,45 +1,65 @@
-console.log('Connected')
+const second = 1000;
 
-const lockTime = 3000;
+console.log("LockBrowser activated!");
 
-// Variable to keep track of whether the browser is locked
-let isLocked = false;
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  if (tabs[0]) {
+    const activeTab = tabs[0];
+    if (activeTab.id) {
+      chrome.tabs.get(activeTab.id, function (tab) {
+        if (tab) {
+          chrome.storage.sync.get(["password", "time"], (res) => {
+            const password = res.password;
+            const time = res.time;
 
-// Function to lock the browser
-function lockBrowser() {
-  isLocked = true;
-  chrome.tabs.query({}, function(tabs) {
-    tabs.forEach(function(tab) {
-      if (tab.url.startsWith("https") && !tab.url.startsWith("password_authentication.html")) {
-        console.log("strictttt")
-        chrome.tabs.update(tab.id, { url: "password_authentication.html" });
-      }
-    });
-  });
-}
+            console.log(`Password: ${password}`);
+            console.log(`Time is: ${time}`);
 
-// Function to unlock the browser
-function unlockBrowser() {
-  isLocked = false;
-}
+            if (time === undefined) {
+              console.log("Time is undefined. Please set a valid time.");
+            } else {
+              setTimeout(() => {
+                chrome.windows.create(
+                  { url: "password_authentication.html" },
+                  function (window) {
+                    const windowId = window.id;
 
-// Set a timeout to lock the browser after the specified time
-// setTimeout(lockBrowser, lockTime);
-lockBrowser();
-// Check if the browser is locked and redirect to the password authentication page if necessary
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if (isLocked && tab.url.startsWith("https") && !tab.url.startsWith("password_authentication.html")) {
-    chrome.tabs.update(tabId, { url: "password_authentication.html" });
-  }
-});
+                    // Blocking web navigation and new tab creation
+                    chrome.webNavigation.onBeforeNavigate.addListener(
+                      (details) => {
+                        if (details.tabId === activeTab.id) {
+                          chrome.tabs.update(activeTab.id, {
+                            url: "password_authentication.html",
+                          });
+                        }
+                        chrome.tabs.remove(details.tabId);
+                      }
+                    );
 
-// Listen for messages from the password authentication page
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  console.log(request.unlock , request.password);
-  if (request.unlock && request.password === "creepypasta123") {
-    unlockBrowser();
-    sendResponse({ success: true });
+                    // Unlocking the browser when the correct password is entered
+                    chrome.runtime.onMessage.addListener(
+                      (request, sender, sendResponse) => {
+                        if (
+                          request.password === password &&
+                          sender.tab.windowId === windowId
+                        ) {
+                          chrome.windows.remove(windowId);
+                        }
+                      }
+                    );
+                  }
+                );
+              }, time * second);
+            }
+          });
+        } else {
+          console.error("Failed to get the active tab.");
+        }
+      });
+    } else {
+      console.error("No tab ID found for the active tab.");
+    }
   } else {
-    sendResponse({ success: false });
+    console.error("No active tab found.");
   }
 });

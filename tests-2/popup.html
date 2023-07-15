@@ -1,12 +1,33 @@
-
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Enter Password:</h1>
-    <form id="passwordForm">
-      <input type="password" id="passwordInput">
-      <button type="submit">Submit</button>
-    </form>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
     <script src="popup.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="navbar-logo">BasketHunt Browser Locker</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card card-color">
+        <div class="card-body">
+          <h1>Lock Your Browser</h1>
+          <p>Enter your password to unlock later:</p>
+          <input type="password" id="passwordInput" />
+          <button id="setTimeBtn">
+            <div class="set">Set Time</div>
+          </button>
+          <p id="statusMessage"></p>
+        </div>
+      </div>
+    </div>
+    <footer>Copyright &copy; BasketHunt Pvt. Ltd. | All Rights Reserved</footer>
   </body>
 </html>
