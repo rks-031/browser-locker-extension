@@ -6,6 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let locked = true; // Flag to track if the browser is locked
 
   unlockBtn.addEventListener("click", function () {
+    unlockBrowser();
+  });
+
+  passwordInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      unlockBrowser();
+    }
+  });
+
+  function unlockBrowser() {
     const password = passwordInput.value;
     chrome.storage.sync.get("password", function (result) {
       const storedPassword = result.password;
@@ -15,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         displayErrorMessage("Oops! Incorrect password. Please try again!!");
       }
     });
-  });
+  }
 
   function unlockPage() {
     // Disable input and button to prevent further interactions
