@@ -1,51 +1,61 @@
-/*
-
-Background-js file which checks for Timeouts and doesn't currently applies the background lock.
-
-*/
-
 const second = 1000;
-//Defining the timeout in Seconds and Not minutes - Just for Development
-//Eg:if Prompt val is 5  : Timeout is for 5000ms / 5s
 
-//Log statement to just chcck if background-js file is correctly attached with the extension
 console.log("LockBrowser activated!");
 
-//using Chrome's Tab API to check for current Tabs | This returns a current list/array of objects containing all the active tabs
+// Querying for the active tab
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-  console.log(tabs); //Check for tabs array in Console
-
-  //A check if the query is a valid one.
   if (tabs[0]) {
     const activeTab = tabs[0];
-    console.log(`The Current Active Tab --> ${activeTab}`);
-
-    //Keeping a check if active tab is a valid tab and NOT undefined
     if (activeTab.id) {
       chrome.tabs.get(activeTab.id, function (tab) {
-        //getting the current tab,where its url will be switched to ./password_authentication.html
         if (tab) {
-          //Just for Dev Purpose:To see what password is being stored in the User's ID.
-          chrome.storage.sync.get("password", (res) => {
-            console.log(`Password  : ${res.password}`);
-          });
+          // Retrieving the stored password and time from storage
+          chrome.storage.sync.get(["password", "time"], (res) => {
+            const password = res.password;
+            const time = res.time;
 
-          //Extracting The time hooked in User's ID to set a Timeout : after which Tab's URL is set to ./password_authentication.html
-          chrome.storage.sync.get("time", (res) => {
-            console.log(`Time is : ${res.time}`); //Just for Testing
-            if (res.time === undefined) {
-              console.log(
-                "Time is Undefined.To fix,correctly type your password and then plug the time in the prompt."
-              );
+            console.log(`Password: ${password}`);
+            console.log(`Time is: ${time}`);
+
+            if (time === undefined) {
+              console.log("Time is undefined. Please set a valid time.");
             } else {
+              // Setting a timeout to lock the browser after the specified time
               setTimeout(() => {
-                //creating a new Window with password_authenticator URL after required time
-                chrome.windows.create({ url: "password_authentication.html" });
-              }, res.time * second);
+                // Creating a new window for password authentication
+                chrome.windows.create(
+                  { url: "password_authentication.html" },
+                  function (window) {
+                    const windowId = window.id;
+
+                    // Blocking web navigation and new tab creation
+                    chrome.webNavigation.onBeforeNavigate.addListener(
+                      (details) => {
+                        if (details.tabId === activeTab.id) {
+                          chrome.tabs.update(activeTab.id, {
+                            url: "password_authentication.html",
+                          });
+                        }
+                        chrome.tabs.remove(details.tabId);
+                      }
+                    );
+
+                    // Unlocking the browser when the correct password is entered
+                    chrome.runtime.onMessage.addListener(
+                      (request, sender, sendResponse) => {
+                        if (
+                          request.password === password &&
+                          sender.tab.windowId === windowId
+                        ) {
+                          chrome.windows.remove(windowId);
+                        }
+                      }
+                    );
+                  }
+                );
+              }, time * second);
             }
           });
-
-          //Error Logs , If any (as per the original Src Code..)
         } else {
           console.error("Failed to get the active tab.");
         }
