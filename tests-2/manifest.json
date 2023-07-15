@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Browser Lock",
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["tabs", "background"],
+  "browser_action": {
+    "default_popup": "password_authentication.html"
+  }
+}
