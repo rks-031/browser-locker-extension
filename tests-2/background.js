@@ -2,6 +2,44 @@ const second = 1000;
 
 console.log("LockBrowser activated!");
 
+// Retrieve the stored time from storage
+chrome.storage.sync.get("time", function (result) {
+  const time = result.time;
+  if (time) {
+    // Convert time to milliseconds
+    const lockTime = time * 60 * 1000;
+
+    // Set the idle threshold
+    chrome.idle.setDetectionInterval(lockTime);
+
+    // Start monitoring for user idle state
+    chrome.idle.onStateChanged.addListener(function (newState) {
+      if (newState === "idle") {
+        lockBrowser();
+      }
+    });
+  } else {
+    console.log("Time is undefined. Please set a valid time.");
+  }
+});
+
+function lockBrowser() {
+  chrome.windows.create({ url: "password_authentication.html" });
+}
+
+// Listen for runtime.onInstalled event
+chrome.runtime.onInstalled.addListener(function () {
+  // Clear any existing idle state
+  chrome.idle.queryState(0, function (state) {});
+
+  // Clear the browser lock on extension installation
+  chrome.windows.getAll(function (windows) {
+    windows.forEach(function (window) {
+      chrome.windows.remove(window.id);
+    });
+  });
+});
+
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   if (tabs[0]) {
     const activeTab = tabs[0];
@@ -25,7 +63,6 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                     const windowId = window.id;
 
                     // Blocking web navigation to existing tabs
-                    //Not working
                     chrome.webNavigation.onBeforeNavigate.addListener(
                       (details) => {
                         if (details.tabId !== activeTab.id) {
