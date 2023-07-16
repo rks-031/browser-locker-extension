@@ -30,7 +30,16 @@
 
 https://github.com/rks-031/browser-locker-extension/assets/103258259/1ef22c8e-4132-4898-939d-a4b319a0373e
 
-Here are the step-by-step points for the extension's functionality:
+***How to use this extension?***
+
+1. Fork this repository.
+2. Clone it using `Github desktop` application or by the command: **git clone https://github.com/YOUR-USERNAME/yt-bookmark-googleExtension**.
+3. Go to **chrome://extensions/** by opening a new tab on Chrome.
+4. Toggle on the **Developer mode**.
+5. Click on **Load Unpacked** button.
+6. Select this repository folder and the extension will be added.
+
+***Here are the step-by-step points for the extension's functionality:***
 
 1. _When you click on the extension's icon, a popup window (popup.html) will appear._
 
