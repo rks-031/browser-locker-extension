@@ -1,36 +1,36 @@
-**_Look of the extension in chrome://extensions/ page:_**
+**_#Look of the extension in chrome://extensions/ page:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/a4f382b8-aaf9-42bd-8f0d-8e3373d35405)
 
-**_On clicking the extension icon(lock):_**
+**_#On clicking the extension icon(lock):_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/f4fe2616-e640-4d29-9639-1da9d7c98310)
 
-**_Type your password:_**
+**_#Type your password:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/16147d93-2081-4199-b7f1-3eada70f01e7)
 
-**_Select time:_**
+**_#Select time:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/2ddb209e-f213-4e8f-8d1e-ddb6280a5eb3)
 
-**_Time set successfully prompt:_**
+**_#Time set successfully prompt:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/50fa048b-11a7-44b1-a667-5fdbfd2ec9ae)
 
-**_Password authenticator window:_**
+**_#Password authenticator window:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/9d5e803d-6449-4af7-9571-8b80caf398c7)
 
-**_On inputing wrong password:_**
+**_#On inputing wrong password:_**
 
 ![image](https://github.com/rks-031/browser-locker-extension/assets/103258259/b5e3ea4c-3fe6-402d-88bd-89a3c83e6f2f)
 
-**_On inputting correct password:_**
+**_#On inputting correct password:_**
 
 https://github.com/rks-031/browser-locker-extension/assets/103258259/1ef22c8e-4132-4898-939d-a4b319a0373e
 
-***How to use this extension?***
+***#How to use this extension?***
 
 1. Fork this repository.
 2. Clone it using `Github desktop` application or by the command: **git clone https://github.com/YOUR-USERNAME/yt-bookmark-googleExtension**.
@@ -39,7 +39,7 @@ https://github.com/rks-031/browser-locker-extension/assets/103258259/1ef22c8e-41
 5. Click on **Load Unpacked** button.
 6. Select this repository folder and the extension will be added.
 
-***Here are the step-by-step points for the extension's functionality:***
+***#Here are the step-by-step points for the extension's functionality:***
 
 1. _When you click on the extension's icon, a popup window (popup.html) will appear._
 
