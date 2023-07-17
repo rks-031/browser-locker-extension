@@ -21,7 +21,8 @@
     "activeTab",
     "tabs",
     "webNavigation",
-    "notifications"
+    "notifications",
+    "idle"
   ],
   "background": {
     "service_worker": "background.js"
