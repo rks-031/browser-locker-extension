@@ -15,7 +15,13 @@
     "48": "lock.png",
     "128": "lock.png"
   },
-  "permissions": ["storage", "activeTab", "tabs", "webNavigation"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "webNavigation",
+    "notifications"
+  ],
   "background": {
     "service_worker": "background.js"
   }
