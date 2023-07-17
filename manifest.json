@@ -5,15 +5,15 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "lock.png",
-      "48": "lock.png",
-      "128": "lock.png"
+      "16": "assets/lock.png",
+      "48": "assets/lock.png",
+      "128": "assets/lock.png"
     }
   },
   "icons": {
-    "16": "lock.png",
-    "48": "lock.png",
-    "128": "lock.png"
+    "16": "assets/lock.png",
+    "48": "assets/lock.png",
+    "128": "assets/lock.png"
   },
   "permissions": [
     "storage",
